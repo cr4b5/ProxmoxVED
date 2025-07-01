@@ -19,12 +19,13 @@ get_latest_release() {
 }
 
 DOCKER_LATEST_VERSION=$(get_latest_release "moby/moby")
-PANGOLIN_LATEST_VERSION=$(get_latest_release "fosrl/pangolin")
 
-msg_info "Installing Pangolin $PANGOLIN_LATEST_VERSION"
-#mkdir -p pangolin
-$STD sh <(curl -fsSL -o installer "https://github.com/fosrl/pangolin/releases/download/"$PANGOLIN_LATEST_VERSION"/installer_linux_$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/')" && chmod +x ./installer)
-msg_ok "Installed Pangolin $PANGOLIN_LATEST_VERSION"
+msg_info "Installing Docker $DOCKER_LATEST_VERSION"
+DOCKER_CONFIG_PATH='/etc/docker/daemon.json'
+mkdir -p $(dirname $DOCKER_CONFIG_PATH)
+echo -e '{\n  "log-driver": "journald"\n}' >/etc/docker/daemon.json
+$STD sh <(curl -fsSL https://get.docker.com)
+msg_ok "Installed Docker $DOCKER_LATEST_VERSION"
 
 motd_ssh
 customize
