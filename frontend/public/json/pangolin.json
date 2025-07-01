@@ -17,24 +17,13 @@
     "install_methods": [
         {
             "type": "default",
-            "script": "ct/docker.sh",
+            "script": "ct/pangolin.sh",
             "resources": {
                 "cpu": 2,
                 "ram": 2048,
                 "hdd": 4,
                 "os": "debian",
                 "version": "12"
-            }
-        },
-        {
-            "type": "alpine",
-            "script": "ct/alpine-docker.sh",
-            "resources": {
-                "cpu": 1,
-                "ram": 1024,
-                "hdd": 2,
-                "os": "alpine",
-                "version": "3.22"
             }
         }
     ],
