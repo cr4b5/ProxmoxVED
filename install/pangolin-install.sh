@@ -20,15 +20,6 @@ get_latest_release() {
 
 DOCKER_LATEST_VERSION=$(get_latest_release "moby/moby")
 PANGOLIN_LATEST_VERSION=$(get_latest_release "fosrl/pangolin")
-#PORTAINER_AGENT_LATEST_VERSION=$(get_latest_release "portainer/agent")
-#DOCKER_COMPOSE_LATEST_VERSION=$(get_latest_release "docker/compose")
-
-msg_info "Installing Docker $DOCKER_LATEST_VERSION"
-DOCKER_CONFIG_PATH='/etc/docker/daemon.json'
-mkdir -p $(dirname $DOCKER_CONFIG_PATH)
-echo -e '{\n  "log-driver": "journald"\n}' >/etc/docker/daemon.json
-$STD sh <(curl -fsSL https://get.docker.com)
-msg_ok "Installed Docker $DOCKER_LATEST_VERSION"
 
 msg_info "Installing Pangolin $PANGOLIN_LATEST_VERSION"
 #mkdir -p pangolin
