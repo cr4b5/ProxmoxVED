@@ -33,7 +33,7 @@ msg_ok "Installed Docker $DOCKER_LATEST_VERSION"
 msg_info "Installing Pangolin $PANGOLIN_LATEST_VERSION"
 #mkdir -p pangolin
 $STD sh <(wget -O installer "https://github.com/fosrl/pangolin/releases/download/1.6.1/installer_linux_$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/')" && chmod +x ./installer)
-msg_ok "Installed Docker $DOCKER_LATEST_VERSION"
+msg_ok "Installed Pangolin $PANGOLIN_LATEST_VERSION"
 
 motd_ssh
 customize
