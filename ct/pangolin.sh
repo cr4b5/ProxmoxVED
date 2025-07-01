@@ -7,7 +7,7 @@ source <(curl -fsSL https://raw.githubusercontent.com/cr4b5/ProxmoxVED/refs/head
 
 # App Default Values
 # Name of the app (e.g. Google, Adventurelog, Apache-Guacamole"
-APP="[Pangolin]"
+APP="Pangolin"
 # Tags for Proxmox VE, maximum 2 pcs., no spaces allowed, separated by a semicolon ; (e.g. database | adblock;dhcp)
 var_tags="${var_tags:-rproxy;iam}"
 # Number of cores (1-X) (e.g. 4) - default are 2
